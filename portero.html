@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portero</title>
+
+</head>
+ <body>
+        <script>
+            function escribir (n) {
+                console.log ('function escribir' + n);
+                p = document.getElementById("piso").value;
+                d = document.getElementById("dpto").value;
+                lp = p.length
+                ld = d.length
+                lt = lp + ld
+                console.log('Piso dice: ' + p);
+	            console.log('Dpto dice: ' + d);
+	            console.log('Largo Piso dice: ' + lp);
+	            console.log('Largo Dpto dice: ' + ld);
+	            console.log('Largo Total: ' + lt);
+                
+                switch (lt) {
+                    case 0:
+                        document.getElementById("piso").value = n;                    
+                        
+                        break
+
+                    case 1:
+                        document.getElementById("piso").value = document.getElementById("piso").value + n;
+                        
+                        break
+
+                    case 2:
+                        document.getElementById("dpto").value = n;
+                        
+                        break
+                    
+                    default:
+                     }
+
+            }
+            function Llamar () {
+                console.log('function Llamar') 
+                p = document.getElementById("piso").value;
+	            d = document.getElementById("dpto").value;
+                var mensaje = "", error = "";
+
+                if (p>=0 && p<=42) {
+                    console.log("piso invalido");
+                    mensaje += "Llamando piso " + p;
+                    
+                }else{
+                    console.log("error piso");
+		            error += "Piso inválido";
+                }
+
+               
+                if (d>=1 && d<=8){
+                    console.log("dpto invalido");
+                    mensaje += " dpto " + d;
+                    
+
+                }else{
+                    console.log("error dpto");
+		            error += " Dpto inválido"; 
+                }
+
+                if(error == ""){
+                    document.getElementById("visor").value = mensaje;
+                }else{
+                    document.getElementById("visor").value = error; 
+                }
+            }
+            function borrar (){
+                console.log ('function borrar')
+                document.getElementById("visor").value="" ;
+                document.getElementById("piso").value="" ;
+                document.getElementById("dpto").value="" ;
+            }
+        </script>
+  
+    <input type="text" value="" id="piso" placeholder="Piso"  >
+    <input type="text" value="" id="dpto" placeholder="Dpto"  >
+    <br/>
+    <input type="button" value="1" onclick="escribir(1)" />
+    <input type="button" value="2" onclick="escribir(2)" />
+    <input type="button" value="3" onclick="escribir(3)" />
+    <br/>
+    <input type="button" value="4" onclick="escribir(4)" />
+    <input type="button" value="5" onclick="escribir(5)" />
+    <input type="button" value="6" onclick="escribir(6)" />
+    <br/>
+    <input type="button" value="7" onclick="escribir(7)" />
+    <input type="button" value="8" onclick="escribir(8)" />
+    <input type="button" value="9" onclick="escribir(9)" />
+    <br/>
+    <input type="button" value="0" onclick="escribir(0)" />
+    
+    <br/>
+    <input type="button" value="Llamar" onclick="Llamar()" />
+    <br/>
+    <input type="button" value="Borrar" onclick="borrar()" />
+    <br/>
+    <input type="text" value="" id="visor" placeholder="Resp"/>
+  </body>
+</html>
